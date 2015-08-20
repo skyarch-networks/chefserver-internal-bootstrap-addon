@@ -290,7 +290,7 @@ capture_tmp_stderr() {
 # do_wget URL FILENAME
 do_wget() {
   echo "trying wget..."
-  wget -O "$2" "$1" 2>$tmp_dir/stderr
+  wget -O "$2" "$1" --no-check-certificate 2>$tmp_dir/stderr
   rc=$?
   # check for 404
   grep "ERROR 404" $tmp_dir/stderr 2>&1 >/dev/null
